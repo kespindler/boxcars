@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/azer/boxcars"
-	"github.com/azer/boxcars/json-config"
+	"github.com/kespindler/boxcars"
+	"github.com/kespindler/boxcars/json-config"
 	"os"
 )
 
