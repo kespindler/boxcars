@@ -1,7 +1,7 @@
 package JSONConfig
 
 import (
-	"encoding/json"
+	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	. "github.com/azer/on-change"
 	. "github.com/azer/debug"
@@ -78,7 +78,7 @@ func Read (filename string) (RawDocument, error) {
 		return nil, err
 	}
 
-	err = json.Unmarshal(content, &raw)
+	err = yaml.Unmarshal(content, &raw)
 
 	if err != nil {
 		return nil, err
