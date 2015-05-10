@@ -159,4 +159,3 @@ You can change soft - hard limits by editing `/etc/security/limits.conf`.
 
 * Add -daemon option.
 
-![](http://i.cloudup.com/rH_0UwNYg1.jpg)
