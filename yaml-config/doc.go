@@ -1,4 +1,4 @@
-package JSONConfig
+package YAMLConfig
 
 import (
 	"gopkg.in/yaml.v2"
@@ -12,13 +12,13 @@ type (
 	RawDocument map[string]interface{}
 )
 
-type JSONConfig struct {
+type YAMLConfig struct {
 	Filename string
 	Document Document
 	callback func(map[string]map[string]string)
 }
 
-func (config *JSONConfig) Load () {
+func (config *YAMLConfig) Load () {
 	raw, err := Read(config.Filename)
 
 	if err != nil {
@@ -31,14 +31,14 @@ func (config *JSONConfig) Load () {
 	go config.callback(config.Document)
 }
 
-func (config *JSONConfig) EnableAutoReload () {
+func (config *YAMLConfig) EnableAutoReload () {
 	OnChange(config.Filename, config.Load)
 }
 
-func NewJSONConfig (filename string, callback func(map[string]map[string]string)) *JSONConfig {
-	Debug("Creating a new JSON config from %s", filename)
+func NewYAMLConfig (filename string, callback func(map[string]map[string]string)) *YAMLConfig {
+	Debug("Creating a new YAML config from %s", filename)
 
-	config := &JSONConfig{filename, nil, callback}
+	config := &YAMLConfig{filename, nil, callback}
 	config.Load()
 
 	return config

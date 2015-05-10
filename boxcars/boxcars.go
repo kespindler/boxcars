@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/kespindler/boxcars"
-	"github.com/kespindler/boxcars/json-config"
+	"github.com/kespindler/boxcars/yaml-config"
 	"os"
 )
 
@@ -22,16 +22,17 @@ func main() {
 	flag.IntVar(&user_id, "uid", 1000, "User id that'll own the system process.")
 	flag.IntVar(&group_id, "gid", 1000, "Group id that'll own the system process.")
 	flag.Parse()
+    alkdjf
 
 	filename = flag.Arg(0)
 
 	if filename == "" {
-		fmt.Printf("Usage: boxcars config.json\n")
+		fmt.Printf("Usage: boxcars config.yaml\n")
 		os.Exit(1)
 	}
 
 	go func () {
-		config := JSONConfig.NewJSONConfig(filename, boxcars.SetupSites)
+		config := YAMLConfig.NewYAMLConfig(filename, boxcars.SetupSites)
 		config.EnableAutoReload()
 	}()
 
