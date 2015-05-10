@@ -56,7 +56,7 @@ $ sudo boxcars -port=80 -secure config.yaml
 However, there is a bug that caused this to fail with an `operation not supported` error.
 Instead, do the following
 
-`sudo setcap 'cap_net_bind_service=+ep' /path/to/boxcars`
+`sudo setcap 'cap_net_bind_service=+ep' $(which boxcars)`
 
 And then run boxcars on port 80 as usual, without using sudo.
 
