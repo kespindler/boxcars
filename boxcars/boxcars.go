@@ -22,7 +22,6 @@ func main() {
 	flag.IntVar(&user_id, "uid", 1000, "User id that'll own the system process.")
 	flag.IntVar(&group_id, "gid", 1000, "Group id that'll own the system process.")
 	flag.Parse()
-    alkdjf
 
 	filename = flag.Arg(0)
 

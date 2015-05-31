@@ -54,12 +54,14 @@ func Normalize (raw RawDocument) Document {
 		case string:
 			config[hostname] = make(map[string]string)
 			config[hostname]["/"] = t
-		case map[string]interface{}:
+		case map[interface{}]interface{}:
 			config[hostname] = make(map[string]string)
 
-			for path, uri := range t {
-				if str, ok := uri.(string); ok {
-					config[hostname][path] = str
+			for key, value := range t {
+				path, ok1 := key.(string)
+				uri, ok2 := value.(string)
+                if ok1 && ok2 {
+					config[hostname][path] = uri
 				}
 			}
 		}
